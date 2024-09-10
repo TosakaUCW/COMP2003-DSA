@@ -2,7 +2,6 @@
 COMP2003 Data Structures and Algorithms
 
 ```
-.
 ├── Lec 01: Course Introduction
 │   ├── 00 Course Introduction.pdf
 │   ├── 01 Recursion - Extra Exercise.pdf
