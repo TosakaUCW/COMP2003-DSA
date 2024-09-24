@@ -25,3 +25,5 @@ replay_pid*
 
 # Lecture Slides
 *.pdf
+
+*.DS_Store
