@@ -120,7 +120,11 @@ public class List {
 		while (cur != null) {
 			
 			if (cur.getData() == x) {
-				pre.setNext(cur.getNext());
+				if (pre == null) {
+					head = cur.getNext();
+				} else {
+					pre.setNext(cur.getNext());
+				}
 				return cur;
 			}
 			
