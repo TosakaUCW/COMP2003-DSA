@@ -118,7 +118,18 @@ public class BST {
 		 * output: 
 		 * the (updated) root of the subtree
 		 */
-		/*YOUR CODE HERE*/
+		if (root == null) {
+            // If the tree is empty, create a new node.
+            return new Node(x);
+        }
+        if (x < root.getKey()) {
+            // Recur down the left subtree.
+            root.setLeft(insertNode(root.getLeft(), x));
+        } else if (x > root.getKey()) {
+            // Recur down the right subtree.
+            root.setRight(insertNode(root.getRight(), x));
+        }
+        // If x is equal to the root's key, do nothing (duplicate).
 		return root;
 	}
 
@@ -135,8 +146,19 @@ public class BST {
 		 * output: 
 		 * a node whose key is "x", or null if "x" is not found
 		 */
-		/*YOUR CODE HERE*/
-		return root;
+		if (root == null) {
+			return null; // Base case: key not found.
+		}
+		if (root.getKey() == x) {
+            return root; // Base case: key is found.
+        }
+        if (x < root.getKey()) {
+			// Recur down the left subtree.
+            return findNode(root.getLeft(), x);
+        } else {
+			// Recur down the right subtree.
+			return findNode(root.getRight(), x);
+		}
 	}
 
 	public void deleteNode(int x) {
@@ -153,8 +175,48 @@ public class BST {
 		 * output:
 		 * the (updated) root of the subtree
 		 */
-		/*YOUR CODE HERE*/
-		return root;
+		if (root == null) {
+            return null; // Base case: key not found.
+        }
+
+        if (x < root.getKey()) {
+            // Recur down the left subtree.
+            root.setLeft(deleteNode(root.getLeft(), x));
+        } else if (x > root.getKey()) {
+            // Recur down the right subtree.
+            root.setRight(deleteNode(root.getRight(), x));
+        } else {
+            // Node to be deleted found.
+            if (root.getLeft() == null) {
+                // Node has no left child.
+                return root.getRight();
+            } else if (root.getRight() == null) {
+                // Node has no right child.
+                return root.getLeft();
+            }
+
+            // Node has two children: Get the inorder successor.
+			// Successor: the minimum node in the right subtree
+			// Find the Successor
+			Node successorParent = root;
+			Node successor = root.getRight();
+			while (successor.getLeft() != null) {
+				successorParent = successor;
+				successor = successor.getLeft();
+			}
+			
+			// Replace with successor
+			root.setkey(successor.getKey());
+			
+            // Delete the inorder successor.
+            if (successorParent != root) {
+				successorParent.setLeft(deleteNode(successorParent.getLeft(), successor.getKey()));
+			} else {
+				successorParent.setRight(deleteNode(successorParent.getRight(), successor.getKey()));
+			}
+	
+        }
+        return root;
 	}
 
 	public static void main(String[] args) {
