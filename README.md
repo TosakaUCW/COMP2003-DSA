@@ -1,14 +1,6 @@
 # COMP2003-DSA
 
-## Course Information
-
 COMP2003: Data Structures and Algorithms
-
-Instructor: Prof. Amy Hui ZHANG
-
-Time: 24 FALL
-
-BNU-HKBU United International College
 
 ## Grades
 
