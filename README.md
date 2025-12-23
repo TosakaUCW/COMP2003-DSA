@@ -6,10 +6,6 @@ COMP2003: Data Structures and Algorithms
 
 Instructor: Prof. Amy Hui ZHANG
 
-> PS: 
->
-> Amy 老师非常好，教学上非常的用心，也非常通情达理！！强烈推荐 Amy 老师
-
 Time: 24 FALL
 
 BNU-HKBU United International College
